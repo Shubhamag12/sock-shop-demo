@@ -39,4 +39,4 @@ spec:
               name: exporter
       nodeSelector:
         node-role.kubernetes.io/worker: ""
-        kubernetes.io/arch: ppc64le
+        

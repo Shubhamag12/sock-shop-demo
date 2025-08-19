@@ -47,5 +47,5 @@ spec:
           emptyDir:
             medium: Memory
       nodeSelector:
-        kubernetes.io/arch: ppc64le
+        
         node-role.kubernetes.io/worker: ""

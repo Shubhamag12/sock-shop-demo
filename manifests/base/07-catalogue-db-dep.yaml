@@ -47,6 +47,5 @@ spec:
         - name: catalogue-data
           emptyDir:
             medium: Memory
-      nodeSelector:
-        kubernetes.io/arch: ppc64le
+      nodeSelector:     
         node-role.kubernetes.io/worker: ""

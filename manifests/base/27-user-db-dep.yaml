@@ -38,4 +38,4 @@ spec:
             claimName: user-db-temp-pvc
       nodeSelector:
         node-role.kubernetes.io/worker: ""
-        kubernetes.io/arch: ppc64le
+        
