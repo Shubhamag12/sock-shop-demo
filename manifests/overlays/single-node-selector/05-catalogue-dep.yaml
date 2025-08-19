@@ -51,5 +51,5 @@ spec:
             initialDelaySeconds: 180
             periodSeconds: 3
       nodeSelector:
-        kubernetes.io/arch: amd64
+        kubernetes.io/arch: ppc64le
         node-role.kubernetes.io/worker: ""

@@ -37,4 +37,4 @@ spec:
             claimName: orders-db-temp-pvc
       nodeSelector:
         node-role.kubernetes.io/worker: ""
-        kubernetes.io/arch: amd64
+        kubernetes.io/arch: ppc64le
