@@ -42,6 +42,7 @@ spec:
               #value: mongodb
           securityContext:
             runAsNonRoot: true
+            runAsUser: 1000
             #privileged: true
           livenessProbe:
             httpGet:
