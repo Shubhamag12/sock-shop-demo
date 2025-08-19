@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: user
-          image: quay.io/powercloud/sock-shop-user:amd64
+          image: quay.io/powercloud/sock-shop-user:ppc64le
           imagePullPolicy: IfNotPresent
           resources:
             limits:

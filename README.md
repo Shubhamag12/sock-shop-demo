@@ -23,7 +23,7 @@ The purpose of this application is to use a reference microservices demo to show
 
 The `catalogue` and `user` have a built-in wait to READY as the dependent databases are started up.
 
-Unless mentioned, each image is cross-compiled in s390x, amd64, arm64, and ppc64le. The image is manifest-listed.
+Unless mentioned, each image is cross-compiled in s390x, ppc64le, arm64, and ppc64le. The image is manifest-listed.
 
 ### Deployment
 
@@ -97,12 +97,12 @@ The applications are compiled into images that are hosted at [quay.io/repository
 
 To build the images, use: 
 
-*amd64*
+*ppc64le*
 
 ```
-ARCH=amd64
+ARCH=ppc64le
 REGISTRY=quay.io/repository/powercloud/sock-shop-${APP}
-make cross-build-amd64
+make cross-build-ppc64le
 ```
 
 *All other arches*
@@ -110,7 +110,7 @@ make cross-build-amd64
 ```
 ARCH=ppc64le
 REGISTRY=quay.io/repository/powercloud/sock-shop-${APP}
-make cross-build-amd64
+make cross-build-ppc64le
 ```
 
 To push the manifest-listed images, use:

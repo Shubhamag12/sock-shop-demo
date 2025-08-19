@@ -1,4 +1,4 @@
-#Arches can be: amd64 s390x arm64 ppc64le
+#Arches can be: ppc64le s390x arm64 ppc64le
 ARCH ?= ppc64le
 
 # The app to build
@@ -74,10 +74,10 @@ cross-build-queue-master: verify-environment
 	+@echo "Done Image - 'queue-master'"
 .PHONY: cross-build-queue-master
 
-cross-build-amd64: cross-build-user cross-build-front-end cross-build-payment cross-build-orders cross-build-catalogue cross-build-catalogue-db cross-build-carts cross-build-shipping cross-build-queue-master
-.PHONY: cross-build-amd64 
+cross-build-ppc64le: cross-build-user cross-build-front-end cross-build-payment cross-build-orders cross-build-catalogue cross-build-catalogue-db cross-build-carts cross-build-shipping cross-build-queue-master
+.PHONY: cross-build-ppc64le 
 
-# cross-build-catalogue-db is not supported on non-amd64 arches
+# cross-build-catalogue-db is not supported on non-ppc64le arches
 cross-build-other: cross-build-user cross-build-front-end cross-build-payment cross-build-orders cross-build-catalogue cross-build-carts cross-build-shipping cross-build-queue-master
 .PHONY: cross-build-other
 
@@ -105,12 +105,12 @@ push-user-db: verify-environment
 	+@echo "Done Image - 'user-db'"
 .PHONY: push-user-db
 
-# These images are build separately and only target amd64
+# These images are build separately and only target ppc64le
 push-db: verify-environment push-catalogue-db push-user-db
 .PHONY: push-db
 
 pull-deps:
-	+@podman pull --platform linux/amd64 ${REGISTRY}/sock-shop-${APP}:amd64
+	+@podman pull --platform linux/ppc64le ${REGISTRY}/sock-shop-${APP}:ppc64le
 	+@podman pull --platform linux/s390x ${REGISTRY}/sock-shop-${APP}:s390x
 	+@podman pull --platform linux/arm64 ${ARM_REGISTRY}/sock-shop-${APP}:arm64
 	+@podman pull --platform linux/ppc64le ${REGISTRY}/sock-shop-${APP}:ppc64le
@@ -122,7 +122,7 @@ push-ml: verify-environment pull-deps
 	+@podman manifest rm ${REGISTRY}/sock-shop-${APP} || true
 	+@echo "Create new ML - ${APP}"
 	+@podman manifest create ${REGISTRY}/sock-shop-${APP} \
-		${REGISTRY}/sock-shop-${APP}:amd64 \
+		${REGISTRY}/sock-shop-${APP}:ppc64le \
 		${REGISTRY}/sock-shop-${APP}:s390x \
 		${ARM_REGISTRY}/sock-shop-${APP}:arm64 \
 		${REGISTRY}/sock-shop-${APP}:ppc64le
