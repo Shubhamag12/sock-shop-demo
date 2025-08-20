@@ -36,6 +36,8 @@ spec:
             - mountPath: /var/lib/mysql
               name: catalogue-data
           securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
             privileged: false
             seccompProfile:
               type: RuntimeDefault
