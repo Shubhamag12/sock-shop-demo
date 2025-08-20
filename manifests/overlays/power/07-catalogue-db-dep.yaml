@@ -51,3 +51,7 @@ spec:
       nodeSelector:
         
         node-role.kubernetes.io/worker: ""
+kustomize build manifests/overlays/power | k apply -f -
+kubectl port-forward service/front-end 8080:80
+ssh -L 8080:localhost:8080 -i ~/.ssh/test_key  root@158.176.197.235
+kustomize build manifests/overlays/power | k delete -f -
