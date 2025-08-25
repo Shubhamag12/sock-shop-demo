@@ -17,7 +17,6 @@ IMAGES=(
     "quay.io/powercloud/sock-shop-shipping:latest"
     "quay.io/powercloud/sock-shop-user:latest"
     "quay.io/powercloud/sock-shop-user-db:ppc64le"
-    ""
 )
 
 # Kind cluster name (change if needed)
